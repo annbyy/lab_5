@@ -2,6 +2,16 @@ import requests
 
 def get_weather(city):
 
+    """
+    Get the current weather for the specified city.
+
+    Args:
+        city (str): The name of the city.
+
+    Returns:
+        dict: Weather information in dictionary format.
+    """
+
     api_key = "ff188543251e1dd98f0e91d663b56cef"
     base_url = "http://api.openweathermap.org/data/2.5/weather"
     
@@ -16,6 +26,16 @@ def get_weather(city):
     return weather_data
 
 def format_weather(weather_data):
+
+    """
+    Format weather information into a readable string.
+
+    Args:
+        weather_data (dict): Weather information in dictionary format.
+
+    Returns:
+        str: Formatted string with weather information.
+    """
 
     if "cod" in weather_data and weather_data["cod"] == "404":
         return "City is not found."
